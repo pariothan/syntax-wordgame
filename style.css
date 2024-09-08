@@ -1,0 +1,203 @@
+/* General body settings for the overall layout */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background: #ffffff;
+  overflow-y: auto;
+  /* Allow vertical scrolling */
+  background: #ffffff;
+  font-style: italic;
+}
+
+/* Display word styling for the text above the tree */
+.display-word {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  /* Capitalize the sequence of letters */
+}
+
+/* Node styling to make them circular and modern looking */
+.node {
+  background: #efc8ad;
+  border: 2px solid #ccc;
+  border-radius: 35%;
+  padding: 5px;
+  width: 20px;
+  opacity: 1;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    opacity 0.3s,
+    padding 0.3s,
+    margin 0.3s,
+    border 0.3s,
+    height 0.3s,
+    width 0.3s,
+    display 0.3s;
+  flex-shrink: 0;
+}
+
+/* Input field settings inside the nodes */
+.node input {
+  width: 30px;
+  /* Adjusted width for single character */
+  text-align: center;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  transition: font-size 0.3s ease-in-out;
+  /* Smooth font-size transition */
+  text-transform: uppercase;
+}
+
+/* Child node settings to ensure proper spacing and alignment */
+.child {
+  margin-top: 20px;
+  /* Space between parent and child */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Container for children nodes to ensure proper alignment */
+.children-container {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  /* Space between sibling nodes */
+}
+
+/* Button styling for adding child nodes */
+button {
+  position: absolute;
+  right: -15px;
+  top: -5px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: #007bff;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: inherit;
+}
+
+/* Change button color when hovered */
+button:hover {
+  background: #0056b3;
+}
+
+
+/* SVG for connecting lines */
+svg {
+  pointer-events: none;
+}
+
+/* Hover effect for nodes to make them grow and shine */
+.node.grown {
+  width: 20px;
+  /* Increased width for grown nodes */
+  height: 20px;
+  /* Increased height for grown nodes */
+  padding: 12px;
+  /* Increase padding */
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 20px;
+  font-size: 24px;
+  /* Larger font size when node grows */
+  opacity: 1;
+  border: 2px solid #000000;
+  /* Make nodes visible */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  /* More prominent shadow */
+}
+
+.node.shrunk {
+  width: 20px;
+  /* Decreased width for shrunk nodes */
+  height: 20px;
+  /* Decreased height for shrunk nodes */
+  padding: 5px;
+  opacity: 0.9;
+  font-size: 12px;
+  /* Smaller font size */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  /* Lighter shadow */
+}
+
+/* Gradient animation for nodes when they grow/shrink */
+.node.gradient-grow {
+  transform: scale(1);
+}
+
+.node.gradient-shrink {
+
+  transform: scale(1);
+}
+
+/* How to refer to buttons attached to grown nodes */
+.node.grown > button {
+  /* Styles for buttons attached to grown nodes */
+  margin: 7px;
+  margin-top: 0px;
+}
+
+* CSS for the delete button */
+
+button.delete-btn {
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background: #ff0000;
+  /* Red background for delete button */
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: inherit;
+}
+
+/* Change delete button color when hovered */
+button.delete-btn:hover {
+  background: #cc0000;
+}
+
+.node.shrunk button {
+  opacity: 0;
+}

@@ -1,0 +1,72 @@
+<!-- index.html -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Node Tree Creator</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .line {
+        position: absolute;
+        height: 2px;
+        background-color: #000;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="display-word" id="wordDisplay">
+      Hover over nodes to see the word
+    </div>
+    <svg
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      "
+    >
+      <line
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="0"
+        style="stroke: rgb(0, 0, 0); stroke-width: 2"
+        class="link-line"
+      />
+    </svg>
+    <div class="node" id="rootNode" style="margin-top: -200px">
+      <input type="text" placeholder="_" maxlength="1" />
+      <button class="add-btn" onclick="addChildNode(this)">+</button>
+    </div>
+
+    <script src="script.js"></script>
+    <div
+      id="wordsList"
+      style="
+        position: fixed;
+        top: 100px;
+        right: 10px;
+        width: 200px;
+        padding: 10px;
+        background-color: #f4f4f4;
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      "
+    >
+      <h3></h3>
+      <ul id="wordsListContent"></ul>
+    </div>
+  </body>
+</html>
